@@ -3,13 +3,13 @@
 namespace FllanBot\Core\Models;
 
 class Ship {
-	public $name;
-	public $speed;
-	public $attackStrength;
-	public $shieldStrength;
-	public $structuralIntegrity;
-	public $cargoCapacity;
-	public $fuelUsage;
+    public $name;
+    public $speed;
+/*  public $structuralIntegrity;
+    public $shieldStrength;
+    public $attackStrength;
+    public $cargoCapacity;
+    public $fuelUsage; */
 }
 
 ?>

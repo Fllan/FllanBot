@@ -3,8 +3,8 @@
 namespace FllanBot\Core\Models;
 
 class Player {
-	public $name;
-	public $id;
+    public $name;
+    public $id;
 }
 
 ?>
