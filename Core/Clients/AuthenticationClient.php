@@ -14,9 +14,10 @@ use FllanBot\Core\Models\Token;
 class AuthenticationClient implements IAuthenticationClient {
     public function authenticate(Profile $profile) {
         return self::extractToken(
-            self::processRequest(
-                self::buildEndpointUrl($profile),
-                self::createHeaders(array())));
+            Request::get(self::buildEndpointUrl($profile))
+                ->addHeaders(self::createHeaders($headers))
+                ->expectsHtml()
+                ->send());
     }
 
     private static function buildEndpointUrl(Profile $profile) {
@@ -47,13 +48,6 @@ class AuthenticationClient implements IAuthenticationClient {
         }
 
         throw new Exception();
-    }
-
-    private static function processRequest($endpoint, array $headers) {
-        return Request::get($endpoint)
-            ->addHeaders(self::createHeaders($headers))
-            ->expectsHtml()
-            ->send();
     }
 }
 
