@@ -10,10 +10,12 @@ use FllanBot\Core\Clients\AuthenticationClient;
 use FllanBot\Core\Models\Profile;
 
 $profile = new Profile();
-$profile->serverUrl = 'truc';
-$profile->username = 'machin';
-$profile->password = 'machine';
+$profile->serverUrl = 'http://uni111.ogame.us/';
+$profile->username = 'THE MUCKRAKER';;
+$profile->password = 'Branleur69$';
 
 $client = new AuthenticationClient();
-$client->authenticate($profile);
+$content = $client->authenticate($profile);
+echo htmlentities($content);
+
 ?>
