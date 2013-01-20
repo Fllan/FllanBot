@@ -14,7 +14,7 @@ class AuthenticationClient implements IAuthenticationClient {
         $endpoint = self::buildEndpointUrl($profile);
         $headers = self::createHeaders(array());
         $response = self::processRequest($endpoint, $headers);
-        return $response;
+        return self::extractToken($response);
     }
 
     private static function buildEndpointUrl(Profile $profile) {
@@ -31,6 +31,15 @@ class AuthenticationClient implements IAuthenticationClient {
             'Accept-Language' => 'fr-FR,fr;q=0.8,en-US;q=0.6,en;q=0.4',
             'Connection' => 'close',
             'User-Agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.52 Safari/537.17))');
+    }
+
+    private static function extractToken($response) {
+        if (!empty($response->headers['Set-Cookie'])) {
+            return substr($response->headers['Set-Cookie'], 0,
+                strpos($response->headers['Set-Cookie'], ';'));
+        }
+
+        throw new Exception();
     }
 
     private static function processRequest($endpoint, array $headers) {
