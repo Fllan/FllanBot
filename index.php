@@ -16,6 +16,6 @@ $profile->password = 'Branleur69$';
 
 $client = new AuthenticationClient();
 $content = $client->authenticate($profile);
-echo htmlentities($content);
+print_r($content);
 
 ?>
