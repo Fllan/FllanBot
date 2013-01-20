@@ -4,7 +4,7 @@ namespace FllanBot\Core\Clients;
 
 require_once DIR_DEPENDENCIES . '/httpful.phar';
 require_once DIR_CORE . '/Models/Profile.php';
-require_once DIR_CORE . '/Clients/IAuthenticationClient.php';
+require_once '/IAuthenticationClient.php';
 
 use Httpful\Request;
 use FllanBot\Core\Models\Profile;
