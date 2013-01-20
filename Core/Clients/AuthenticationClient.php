@@ -4,10 +4,12 @@ namespace FllanBot\Core\Clients;
 
 require_once DIR_DEPENDENCIES . '/httpful.phar';
 require_once DIR_CORE . '/Models/Profile.php';
+require_once DIR_CORE . '/Models/Token.php';
 require_once '/IAuthenticationClient.php';
 
 use Httpful\Request;
 use FllanBot\Core\Models\Profile;
+use FllanBot\Core\Models\Token;
 
 class AuthenticationClient implements IAuthenticationClient {
     public function authenticate(Profile $profile) {
@@ -33,10 +35,15 @@ class AuthenticationClient implements IAuthenticationClient {
             'User-Agent' => 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.52 Safari/537.17))');
     }
 
+    private static function createToken(array $cookie) {
+        return new Token($cookie[0], $cookie[1]);
+    }
+
     private static function extractToken($response) {
         if (!empty($response->headers['Set-Cookie'])) {
-            return substr($response->headers['Set-Cookie'], 0,
-                strpos($response->headers['Set-Cookie'], ';'));
+            return self::createToken(
+                explode('=', substr($response->headers['Set-Cookie'], 0,
+                    strpos($response->headers['Set-Cookie'], ';'))));
         }
 
         throw new Exception();
