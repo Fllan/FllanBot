@@ -15,7 +15,7 @@ class AuthenticationClient implements IAuthenticationClient {
     public function authenticate(Profile $profile) {
         return self::extractToken(
             Request::get(self::buildEndpointUrl($profile))
-                ->addHeaders(self::createHeaders($headers))
+                ->addHeaders(self::createHeaders(array()))
                 ->expectsHtml()
                 ->send());
     }
