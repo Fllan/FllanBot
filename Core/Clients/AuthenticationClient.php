@@ -11,10 +11,10 @@ use FllanBot\Core\Models\Profile;
 
 class AuthenticationClient implements IAuthenticationClient {
     public function authenticate(Profile $profile) {
-        $endpoint = self::buildEndpointUrl($profile);
-        $headers = self::createHeaders(array());
-        $response = self::processRequest($endpoint, $headers);
-        return self::extractToken($response);
+        return self::extractToken(
+            self::processRequest(
+                self::buildEndpointUrl($profile),
+                self::createHeaders(array())));
     }
 
     private static function buildEndpointUrl(Profile $profile) {
