@@ -12,7 +12,7 @@ use FllanBot\Core\Models\Profile;
 use FllanBot\Core\Models\Token;
 
 class AuthenticationClient implements IAuthenticationClient {
-    public function authenticate(Profile $profile) {
+    public function acquireToken(Profile $profile) {
         return self::extractToken(
             Request::get(self::buildEndpointUrl($profile))
                 ->addHeaders(self::createHeaders(array()))

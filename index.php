@@ -15,7 +15,7 @@ $profile->username = 'THE MUCKRAKER';;
 $profile->password = 'Branleur69$';
 
 $client = new AuthenticationClient();
-$content = $client->authenticate($profile);
-print_r($content);
+$token = $client->acquireToken($profile);
+print_r($token);
 
 ?>
