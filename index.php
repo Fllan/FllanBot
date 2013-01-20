@@ -16,5 +16,4 @@ $profile->password = 'machine';
 
 $client = new AuthenticationClient();
 $client->authenticate($profile);
-
 ?>
