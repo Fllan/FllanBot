@@ -2,8 +2,10 @@
 
 namespace FllanBot\Core\Clients;
 
+use FllanBot\Core\Models\Profile;
+
 interface IAuthenticationClient {
-    public function authenticate($settings);
+    public function authenticate(Profile $profile);
 }
 
 ?>
