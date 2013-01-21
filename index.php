@@ -10,7 +10,7 @@ require_once DIR_DEPENDENCIES . '/httpful.phar';
 
 use FllanBot\Core\Clients\AuthenticationClient;
 use FllanBot\Core\Models\Profile;
-use FllanBot\Core\Utils\AuthenticationUtils;
+use FllanBot\Core\Utils\AuthenticationUtil;
 use Httpful\Request;
 
 $profile = new Profile();
@@ -28,7 +28,7 @@ $response = Request::get($url)
         'Accept-Charset' => 'ISO-8859-1,utf-8;q=0.7,*;q=0.3',
         'Accept-Language' => 'fr-FR,fr;q=0.8,en-US;q=0.6,en;q=0.4',
         'Connection' => 'close',
-        'Cookie' => AuthenticationUtils::serializeTokens($tokens),
+        'Cookie' => AuthenticationUtil::serializeTokens($tokens),
         'Host' => 'uni111.ogame.us',
         'Origin' => 'http://uni111.ogame.us',
         'Referer' => 'http://uni111.ogame.us/game/index.php?page=overview',

@@ -2,7 +2,7 @@
 
 namespace FllanBot\Core\Utils;
 
-class AuthenticationUtils {
+class AuthenticationUtil {
     public static function serializeTokens(array $tokens) {
         $value = '';
         foreach ($tokens as $token) {
