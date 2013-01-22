@@ -5,10 +5,12 @@ define('DIR_CORE', DIR_ROOT . '/Core/');
 define('DIR_DEPENDENCIES', DIR_ROOT . '/Dependencies/');
 
 require_once DIR_CORE . '/Clients/AuthenticationClient.php';
+require_once DIR_CORE . '/Clients/EventClient.php';
 require_once DIR_CORE . '/Utils/AuthenticationUtil.php';
 require_once DIR_DEPENDENCIES . '/httpful.phar';
 
 use FllanBot\Core\Clients\AuthenticationClient;
+use FllanBot\Core\Clients\EventClient;
 use FllanBot\Core\Models\Profile;
 use FllanBot\Core\Utils\AuthenticationUtil;
 use Httpful\Request;
@@ -37,5 +39,9 @@ $response = Request::get($url)
     ->send();
 
 echo $response->body;
+
+$testEvent = new EventClient();
+$ongoingAttack = $testEvent->testAttack();
+
 
 ?>
