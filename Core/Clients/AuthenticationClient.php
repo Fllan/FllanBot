@@ -8,6 +8,7 @@ require_once '/IAuthenticationClient.php';
 
 use FllanBot\Core\Models\Profile;
 use FllanBot\Core\Models\Token;
+use FllanBot\Core\Utils\EndpointUtil;
 
 class AuthenticationClient implements IAuthenticationClient {
     public function acquireTokens(Profile $profile) {
@@ -23,10 +24,10 @@ class AuthenticationClient implements IAuthenticationClient {
     }
 
     private static function buildEndpointUrl(Profile $profile) {
-        return sprintf("%s/game/reg/login2.php?login=%s&pass=%s&kid=&v=2",
-            rtrim($profile->serverUrl, '/'),
-            urlencode($profile->username),
-            urlencode($profile->password));
+        return EndpointUtil::buildEndpointUrl($profile->serverUrl,
+            sprintf("/game/reg/login2.php?login=%s&pass=%s&kid=&v=2",
+                urlencode($profile->username),
+                urlencode($profile->password)));
     }
 
     private static function createHeaders(array $headers) {
