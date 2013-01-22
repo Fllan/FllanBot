@@ -15,7 +15,7 @@ use Httpful\Request;
 
 $profile = new Profile();
 $profile->serverUrl = 'http://uni111.ogame.us/';
-$profile->username = 'THE MUCKRAKER';;
+$profile->username = 'THE MUCKRAKER';
 $profile->password = 'Branleur69$';
 
 $client = new AuthenticationClient();
