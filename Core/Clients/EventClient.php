@@ -11,7 +11,7 @@ use FllanBot\Core\Models\Token;
 
 
 class EventClient {
-    public function testAttack() {
+    public function testAttack($tokens) {
         $ongoingAttack = false;
         
         $url = 'http://uni111.ogame.us/game/index.php?page=fetchEventbox&ajax=1';

@@ -41,7 +41,7 @@ $response = Request::get($url)
 echo $response->body;
 
 $testEvent = new EventClient();
-$ongoingAttack = $testEvent->testAttack();
+$ongoingAttack = $testEvent->testAttack($tokens);
 
 
 ?>
