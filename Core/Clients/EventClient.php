@@ -11,7 +11,7 @@ class EventClient {
         
         $ongoingAttack = false;
         
-        if($response->hostile == 1){
+        if($response->body->hostile != 0){
              $ongoingAttack = true;
              echo 'ONGOING ATTACK !';
         }
