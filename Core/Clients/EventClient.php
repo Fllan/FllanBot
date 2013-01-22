@@ -34,7 +34,7 @@ class EventClient {
              $ongoingAttack = true;
              echo 'ONGOING ATTACK !';
         }
-        elseif {
+        else {
             echo 'Don\'t worry, be happy !';
         }
         return $ongoingAttack;
