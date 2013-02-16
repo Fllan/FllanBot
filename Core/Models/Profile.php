@@ -6,6 +6,7 @@ class Profile {
     public $password;
     public $serverUrl;
     public $username;
+    public $email;
 }
 
 ?>

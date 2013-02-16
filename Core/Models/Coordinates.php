@@ -10,9 +10,9 @@ class PositionType {
 
 class Coordinates {
     public $galaxy;
-    public $system;
-    public $position;
-    public $positionType;
+	public $system;
+	public $position;
+	public $positionType;
 }
 
 ?>

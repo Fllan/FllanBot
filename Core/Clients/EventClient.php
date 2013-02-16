@@ -19,6 +19,7 @@ class EventClient {
         $this->authenticationClient = $authenticationClient;
     }
 
+    // Test if a hostile event is coming (return '0' if no event)
     public function countHostileEvents(array $tokens, Profile $profile) {
         return Request::get(EndpointUtil::buildEndpointUrl($profile->serverUrl, '/game/index.php?page=fetchEventbox&ajax=1'))
             ->addHeaders(self::buildHeaders($tokens, $profile))
@@ -27,6 +28,7 @@ class EventClient {
             ->body
             ->hostile;
     }
+
 
     private function buildHeaders(array $tokens, Profile $profile) {
         return array(
