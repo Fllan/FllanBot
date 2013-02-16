@@ -1,7 +1,9 @@
 <?php
 
-interface INotificationProvider {
+namespace FllanBot\Core\Notifications;
 
+interface INotificationProvider {
+    public function notify($message, Profile $profile);
 }
 
 ?>
