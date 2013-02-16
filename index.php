@@ -26,7 +26,12 @@ $profile->email = 'ogame@lanternier.net';
 $authenticationClient = new AuthenticationClient();
 $securityTokens = $authenticationClient->acquireTokens($profile);
 
+$analyze = new EventCoordinator();
+$analyze->analyze($profile);
+
+
+/*
 $eventClient = new EventClient($authenticationClient);
 var_dump($eventClient->countHostileEvents($securityTokens, $profile));
-
+*/
 ?>
