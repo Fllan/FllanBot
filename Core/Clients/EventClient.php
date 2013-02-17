@@ -6,13 +6,14 @@ require_once DIR_CORE . '/Models/Profile.php';
 require_once DIR_CORE . '/Utils/AuthenticationUtil.php';
 require_once DIR_CORE . '/Utils/EndpointUtil.php';
 require_once '/IAuthenticationClient.php';
+require_once '/IEventClient.php';
 
 use FllanBot\Core\Models\Profile;
 use FllanBot\Core\Utils\AuthenticationUtil;
 use FllanBot\Core\Utils\EndpointUtil;
 use Httpful\Request;
 
-class EventClient {
+class EventClient implements IEventClient {
     private $authenticationClient;
 
     public function __construct(IAuthenticationClient $authenticationClient) {

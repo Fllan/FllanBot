@@ -9,12 +9,10 @@ use FllanBot\Core\Models\Profile;
 
 class EmailNotificationProvider implements INotificationProvider {
     public function notify($message, Profile $profile) {
-        $to = $profile->email;
-        $subject = 'Something is happening on your OGame account !';
-        if (mail($to, $subject, $message)) {
-            echo '<p>Message successfully sent !</p>'
+        if (mail($profile->email, $subject, 'Something is happening on your OGame account !')) {
+            echo '<p>Message successfully sent !</p>';
         } else {
-            echo '<p>Message delivery failed...</p>'
+            echo '<p>Message delivery failed...</p>';
         }
     }
 }
